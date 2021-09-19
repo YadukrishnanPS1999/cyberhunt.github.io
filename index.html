@@ -1,11 +1,40 @@
 <!DOCTYPE html>
 <html>
 <style>
+
+	input[type=text], select {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+input[type=submit] {
+  width: 100%;
+  background-color: #4CAF50;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+input[type=submit]:hover {
+  background-color: #45a049;
+}
+
+
 	head{
 		color: white;
 	}
 	body{
-		background-color: black;
+		background-color: white;
+		background-image: url("img/cover.png");
+		opacity: 100%;
 	}
 	h1,h6{
 		text-align: center;
@@ -20,23 +49,89 @@
 		color: white;
 		text-align: center;
 	}
+	div.main{
+		
+
+		font-style: "Montserrat-Black.ttf"
+		src = url("Montserrat/Montserrat-Black.ttf")
+	}
+	
 	a{
 		color: white;
 	}
 </style>
 <head>
 	<title>Cyberhunt</title>
-	<h1> SAMPLE TEST AREA </h1>
+	<div class="main">
+	<h1> TASK ONE </h1>
 	<h6> sample text area </h6>
-	<h1 class="time"> CHECK MY ANCHOR TO START JOURNEY </h6>
-		<div>
-			<img src="im.png">
-		</div>
-		<div>
-	<a ref="https://www.youtube.com/watch?v=xMZaObIQps8"> CLICK HERE </a>
-		</div>
+	<h1 class="time" id="demo"> YOUR ANSWER WILL BE DISPLAYED HERE </h1>
+	</div>
 </head>
 <body>
+	<div>
+  <form action="/action_page.php">
+    <label for="fname">ENTER ANSWER HERE</label>
+    <input type="text" id="fname" name="firstname" placeholder="Your name..">
+    <input type="submit" onclick="display();">
+  </form>
+</div>
+<script type="text/javascript">
 
+	var ret=[];
+	var sc = [118,97,105,107,111,109];
+	sc.sort(function(a, b){return a - b});
+	var p = [1,2,3,5,4,0];
+	// v a i k o m 
+	//118 97 105 107 111 109
+	//97 105 107 109 111 118
+	var j =0;
+	var pc =0;
+
+	var rets=[];
+	var scs = [121,101,100,104,117];
+	scs.sort(function(a, b){return a - b});
+	var ps = [2,1,3,4,0];
+	// v a i k o m 
+	// 100 101 104 117 121
+	//97 105 107 109 111 118
+	var js =0;
+	var pcs =0;
+
+function display(){
+	for (let i = 97; i <=122; i++) {
+
+		for(let m=0;m<sc.length;m++){
+			if(String.fromCharCode(sc[m]) == String.fromCharCode(i)  ){
+				ret[p[pc]] = String.fromCharCode(i);
+				pc++;
+			}
+		}
+	}
+
+	for (let o = 97; o <=122; o++) {
+
+		for(let n=0;n<scs.length;n++){
+			if(String.fromCharCode(scs[n]) == String.fromCharCode(o)  ){
+				rets[ps[pcs]] = String.fromCharCode(o);
+				pcs++;
+			}
+		}
+	}
+
+
+	var input = document.getElementById("fname").value; 
+	var str = ret.join("");
+	var strs = rets.join("");
+	//document.getElementById("demo").innerHTML = str1;
+	if(input == strs){
+	document.getElementById("demo").innerHTML = str;
+	}
+	else{
+	document.getElementById("demo").innerHTML = "Try Again";
+	}
+}
+
+</script>
 </body>
 </html>
